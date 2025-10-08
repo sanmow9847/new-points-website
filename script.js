@@ -8,7 +8,7 @@ async function checkPoints() {
     }
 
     // URL to the published CSV data
-    const csvUrl = 'https://docs.google.com/spreadsheets/d/18i3CY-gT2nmUkSW_2-XCPcrNWfTZj5EBxO4J_mLtKtY/edit?resourcekey=&gid=1769545440#gid=1769545440/export?format=csv';
+    const csvUrl = 'https://docs.google.com/spreadsheets/d/18i3CY-gT2nmUkSW_2-XCPcrNWfTZj5EBxO4J_mLtKtY/export?format=csv';
 
     try {
         const response = await fetch(csvUrl);
@@ -25,7 +25,7 @@ async function checkPoints() {
         for (let i = 1; i < data.length; i++) {
             const row = data[i];
             const idFromSheet = row[1].toLowerCase().trim(); // ID from column B (index 1)
-            const hoursFromSheet = parseFloat(row[6]) || 0; // Total hours from column G (index 6)
+            const hoursFromSheet = parseFloat(row[7]) || 0; // Total hours from column G (index 6)
 
             if (idFromSheet === email) {
                 totalHours = hoursFromSheet;
