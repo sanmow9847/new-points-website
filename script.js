@@ -24,15 +24,12 @@ async function checkPoints() {
         // Skip header row
         for (let i = 1; i < data.length; i++) {
             const row = data[i];
-            console.log(i);
             const idFromSheet = row[1].toLowerCase().trim(); // ID from column B (index 1)
-            const hoursFromSheet = parseFloat(row[7]) || 0; // Total hours from column G (index 6)
+            const hoursFromSheet = parseFloat(row[row.length - 1]) || 0; // Total hours from column G (index 6)
 
             if (idFromSheet === email) {
-                console.log(row, hoursFromSheet);
                 totalHours = hoursFromSheet;
                 userFound = true;
-                console.log(totalHours);
                 break;
             }
         }
