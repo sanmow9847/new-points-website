@@ -17,7 +17,7 @@ async function checkPoints() {
         // Parse CSV text
         const rows = csvText.split('\n');
         const data = rows.map(row => row.split(','));
-
+        console.log(data);
         let userFound = false;
         let totalHours = 0;
 
@@ -30,6 +30,7 @@ async function checkPoints() {
             if (idFromSheet === email) {
                 totalHours = hoursFromSheet;
                 userFound = true;
+                console.log(totalHours);
                 break;
             }
         }
